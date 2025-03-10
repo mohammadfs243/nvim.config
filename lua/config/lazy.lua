@@ -24,12 +24,19 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight-moon" end },
-    { import = "config.plugins" },
-  },
-  -- -- Configure any other settings here. See the documentation for more details.
-  -- -- colorscheme that will be used when installing plugins.
-  -- install = { colorscheme = { "habamax" } },
-  -- -- automatically check for plugin updates
-  -- checker = { enabled = true },
-})
+    {
+      "folke/tokyonight.nvim",
+      priority = 1000,
+      init = function()
+	vim.cmd.colorscheme "tokyonight-night" 
+	vim.cmd.hi "Comment gui=None"
+      end,
+    },
+      { import = "config.plugins" },
+    },
+    -- -- Configure any other settings here. See the documentation for more details.
+    -- -- colorscheme that will be used when installing plugins.
+    -- install = { colorscheme = { "habamax" } },
+    -- -- automatically check for plugin updates
+    -- checker = { enabled = true },
+  })
