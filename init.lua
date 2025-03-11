@@ -7,6 +7,10 @@ vim.keymap.set("v", "<space>x", ":lua<CR>")
 
 vim.keymap.set("n", "<tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-tab>", ":bprevious<CR>")
+vim.keymap.set("n", "<space>bd", ":bdelete<CR>")
+
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 vim.keymap.set("n", "<space>pv", ":Exp<CR>")
 
