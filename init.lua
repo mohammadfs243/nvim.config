@@ -11,6 +11,7 @@ vim.keymap.set("n", "<S-tab>", ":bprevious<CR>")
 vim.keymap.set("n", "<space>pv", ":Exp<CR>")
 
 set.shiftwidth = 4
+set.expandtab = true
 set.number = true
 set.relativenumber = true
 
@@ -26,4 +27,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require("config.lazy")
-
