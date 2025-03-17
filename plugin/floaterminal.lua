@@ -55,4 +55,5 @@ end
 -- Example usage:
 -- Create a floating window with default dimensions
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-vim.keymap.set({ "n", "t" }, "<space>tt", toggle_terminal)
+-- Setting this keymap for terminal mode makes typing space feel laggy
+vim.keymap.set({ "n" }, "<space>tt", toggle_terminal)
