@@ -1,6 +1,3 @@
--- for easier and more intuitive setting options
-local set = vim.opt
-
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
@@ -13,11 +10,14 @@ vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 vim.keymap.set("n", "<space>pv", ":Exp<CR>")
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 
-set.shiftwidth = 4
-set.expandtab = true
-set.number = true
-set.relativenumber = true
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.signcolumn = "yes"
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
