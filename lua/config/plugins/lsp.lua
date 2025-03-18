@@ -9,6 +9,10 @@ return {
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+      },
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim',       opts = {} },
