@@ -16,7 +16,7 @@ vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
 -- Highlight when yanking (copying) text
