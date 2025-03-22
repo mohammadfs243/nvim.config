@@ -19,6 +19,7 @@ vim.opt.softtabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
+vim.opt.timeoutlen = 300
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
