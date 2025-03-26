@@ -19,7 +19,7 @@ vim.opt.softtabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 700
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -56,3 +56,20 @@ vim.keymap.set("n", "<space>tr", function()
 end)
 
 require("config.lazy")
+
+local harpoon = require("harpoon.ui")
+vim.keymap.set("n", "<leader>ht", harpoon.toggle_quick_menu, { desc = "Toggle harpoon quick menu" })
+vim.keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "Add current file to harpoon" })
+vim.keymap.set("n", "<leader>hr", function()
+  local harpoon = require("harpoon.mark")
+  harpoon.rm_file(harpoon.get_current_index())
+end, { desc = "Remove current file from harpoon" })
+vim.keymap.set("n", "<leader>hn", harpoon.nav_next, { desc = "Go to next harpoon mark" })
+vim.keymap.set("n", "<leader>hp", harpoon.nav_prev, { desc = "Go to previous harpoon mark" })
+vim.keymap.set("n", "<M-1>", function() harpoon.nav_file(1) end, { desc = "Go to file 1 in harpoon marks" })
+vim.keymap.set("n", "<M-2>", function() harpoon.nav_file(2) end, { desc = "Go to file 2 in harpoon marks" })
+vim.keymap.set("n", "<M-3>", function() harpoon.nav_file(3) end, { desc = "Go to file 3 in harpoon marks" })
+vim.keymap.set("n", "<M-4>", function() harpoon.nav_file(4) end, { desc = "Go to file 4 in harpoon marks" })
+vim.keymap.set("n", "<M-5>", function() harpoon.nav_file(5) end, { desc = "Go to file 5 in harpoon marks" })
+vim.keymap.set("n", "<leader>hgt", function() harpoon.nav_file(tonumber(vim.fn.input("Mark number? "))) end,
+  { desc = "Go to file 5 in harpoon marks" })
