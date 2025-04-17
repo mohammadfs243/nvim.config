@@ -13,6 +13,12 @@ vim.keymap.set("n", "<space>pv", ":Exp<CR>")
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 
+vim.keymap.set("n", "<space>va", "ggVG")
+vim.keymap.set({ "n", "v" }, "<space>y", "\"+y")
+vim.keymap.set("n", "<space>Y", "\"+Y")
+vim.keymap.set({ "n", "v" }, "<space>p", "\"+p")
+vim.keymap.set({ "n", "v" }, "<space>P", "\"+P")
+
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
