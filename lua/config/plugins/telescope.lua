@@ -33,6 +33,7 @@ return {
       vim.keymap.set("n", "<space>ff", require("telescope.builtin").find_files)
       vim.keymap.set("n", "<space>fh", require("telescope.builtin").help_tags)
       vim.keymap.set("n", "<space><space>", require("telescope.builtin").buffers)
+      vim.keymap.set("n", "<space>fr", require("telescope.builtin").oldfiles)
       vim.keymap.set("n", "<space>tb", function()
         local opts = require("telescope.themes").get_ivy()
         require("telescope.builtin").builtin(opts)
