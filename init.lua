@@ -19,13 +19,23 @@ vim.keymap.set("n", "<space>Y", "\"+Y")
 vim.keymap.set({ "n", "v" }, "<space>p", "\"+p")
 vim.keymap.set({ "n", "v" }, "<space>P", "\"+P")
 
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
+
+vim.keymap.set("n", "<space>s", "<cmd>split<CR>")
+vim.keymap.set("n", "<space>sn", "<cmd>split new<CR>")
+vim.keymap.set("n", "<space>sv", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "<space>svn", "<cmd>vsplit new<CR>")
+
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.timeoutlen = 700
+vim.opt.timeoutlen = 300
 
 -- undo tree related
 vim.opt.swapfile = false
