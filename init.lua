@@ -35,7 +35,7 @@ vim.opt.softtabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 
 -- undo tree related
 vim.opt.swapfile = false
@@ -86,8 +86,8 @@ vim.keymap.set("n", "<leader>hr", function()
   local harpoon = require("harpoon.mark")
   harpoon.rm_file(harpoon.get_current_index())
 end, { desc = "Remove current file from harpoon" })
-vim.keymap.set("n", "<leader>hn", harpoon.nav_next, { desc = "Go to next harpoon mark" })
-vim.keymap.set("n", "<leader>hp", harpoon.nav_prev, { desc = "Go to previous harpoon mark" })
+vim.keymap.set("n", "<C-}>", harpoon.nav_next, { desc = "Go to next harpoon mark" })
+vim.keymap.set("n", "<C-{>", harpoon.nav_prev, { desc = "Go to previous harpoon mark" })
 vim.keymap.set("n", "<M-1>", function() harpoon.nav_file(1) end, { desc = "Go to file 1 in harpoon marks" })
 vim.keymap.set("n", "<M-2>", function() harpoon.nav_file(2) end, { desc = "Go to file 2 in harpoon marks" })
 vim.keymap.set("n", "<M-3>", function() harpoon.nav_file(3) end, { desc = "Go to file 3 in harpoon marks" })
