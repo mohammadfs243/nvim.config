@@ -37,6 +37,9 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.timeoutlen = 500
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- undo tree related
 vim.opt.swapfile = false
 vim.opt.backup = false
