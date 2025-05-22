@@ -40,6 +40,29 @@ vim.opt.timeoutlen = 500
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+local filetypes_to_indent = {
+  "javascript",
+  "typescript", -- Often good to include if you have JS
+  "javascriptreact",
+  "typescriptreact",
+  "css",
+  "html",
+  "json", -- Often related to web dev
+  "yaml", -- Often related to web dev
+}
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("WebDevIndentation", { clear = true }),
+  pattern = table.concat(filetypes_to_indent, ","), -- Join filetypes with commas
+  callback = function()
+    -- Set buffer-local options for indentation
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true -- Use spaces instead of tabs
+  end,
+  desc = "Set 2-space indentation for web development files",
+})
+
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
