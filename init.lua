@@ -66,6 +66,18 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
+vim.keymap.set('n', '<space>fl', function()
+  local current_fold_level = vim.opt_local.foldlevel:get()
+  local prompt_message = "Fold level (" .. current_fold_level .. "): "
+  local input_str = vim.fn.input(prompt_message)
+  local new_fold_level = tonumber(input_str)
+
+  if new_fold_level then
+    vim.opt_local.foldlevel = new_fold_level
+  else
+    print("Invalid fold level!")
+  end
+end, { desc = "Set local fold level" })
 
 -- undo tree related
 vim.opt.swapfile = false
