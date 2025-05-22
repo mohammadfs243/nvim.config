@@ -37,6 +37,11 @@ return {
           -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = {},
         },
+        folds = {
+          enable = true,
+          -- You can customize the fold text here if you like
+          -- fold_text_source = "fold_text",
+        },
       }
     end
   }

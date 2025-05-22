@@ -40,6 +40,10 @@ vim.opt.timeoutlen = 500
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99
+
 -- undo tree related
 vim.opt.swapfile = false
 vim.opt.backup = false
