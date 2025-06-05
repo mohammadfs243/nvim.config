@@ -40,6 +40,9 @@ vim.opt.timeoutlen = 500
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Increase jumplist (telescope oldfiles)
+vim.opt.shada = "'999,<99,s10,h"
+
 local filetypes_to_indent = {
   "javascript",
   "typescript", -- Often good to include if you have JS
