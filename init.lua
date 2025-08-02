@@ -138,5 +138,9 @@ vim.keymap.set("n", "<space>2", function() harpoon.nav_file(2) end, { desc = "Go
 vim.keymap.set("n", "<space>3", function() harpoon.nav_file(3) end, { desc = "Go to file 3 in harpoon marks" })
 vim.keymap.set("n", "<space>4", function() harpoon.nav_file(4) end, { desc = "Go to file 4 in harpoon marks" })
 vim.keymap.set("n", "<space>5", function() harpoon.nav_file(5) end, { desc = "Go to file 5 in harpoon marks" })
+vim.keymap.set("n", "<space>6", function() harpoon.nav_file(6) end, { desc = "Go to file 2 in harpoon marks" })
+vim.keymap.set("n", "<space>7", function() harpoon.nav_file(7) end, { desc = "Go to file 3 in harpoon marks" })
+vim.keymap.set("n", "<space>8", function() harpoon.nav_file(8) end, { desc = "Go to file 4 in harpoon marks" })
+vim.keymap.set("n", "<space>9", function() harpoon.nav_file(9) end, { desc = "Go to file 5 in harpoon marks" })
 vim.keymap.set("n", "<leader>hgt", function() harpoon.nav_file(tonumber(vim.fn.input("Mark number? "))) end,
-  { desc = "Go to file 5 in harpoon marks" })
+  { desc = "Go to specific harpoon mark number" })
