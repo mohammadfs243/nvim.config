@@ -243,7 +243,12 @@ return {
           },
         },
       }
-
+      local lspconfig = require('lspconfig')
+      lspconfig.ts_ls.setup {
+        -- Ensure 'javascript' is in the filetypes
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+        -- Other settings...
+      }
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
