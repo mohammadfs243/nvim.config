@@ -243,12 +243,12 @@ return {
           },
         },
       }
-      local lspconfig = require('lspconfig')
-      lspconfig.ts_ls.setup {
+      vim.lsp.config("ts_ls", {
         -- Ensure 'javascript' is in the filetypes
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
         -- Other settings...
       }
+      )
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -278,7 +278,7 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp[server_name].setup(server)
           end,
         },
       }
