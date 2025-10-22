@@ -42,6 +42,9 @@ return {
           -- You can customize the fold text here if you like
           -- fold_text_source = "fold_text",
         },
+        indent = {
+          enable = true,
+        }
       }
     end
   }
