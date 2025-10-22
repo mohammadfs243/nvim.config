@@ -29,6 +29,8 @@ vim.keymap.set("n", "<space>sn", "<cmd>split new<CR>")
 vim.keymap.set("n", "<space>sv", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<space>svn", "<cmd>vsplit new<CR>")
 
+vim.keymap.set("n", "<space>w", "<cmd>noa w<CR>")
+
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
