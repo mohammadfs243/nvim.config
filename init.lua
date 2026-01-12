@@ -34,6 +34,7 @@ vim.keymap.set("n", "<space>w", "<cmd>noa w<CR>")
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
@@ -54,6 +55,7 @@ local filetypes_to_indent = {
   "html",
   "json", -- Often related to web dev
   "yaml", -- Often related to web dev
+  "markdown",
 }
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("WebDevIndentation", { clear = true }),
