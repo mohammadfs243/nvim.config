@@ -57,3 +57,4 @@ end
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
 -- Setting this keymap for terminal mode makes typing space feel laggy
 vim.keymap.set({ "n" }, "<space>tt", toggle_terminal)
+vim.keymap.set({ "t" }, "<C-space>", toggle_terminal)
