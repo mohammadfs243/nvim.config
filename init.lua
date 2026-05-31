@@ -43,6 +43,8 @@ vim.opt.timeoutlen = 500
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.hlsearch = false
+
 -- Increase jumplist (telescope oldfiles)
 vim.opt.shada = "'999,<99,s10,h"
 
@@ -127,6 +129,15 @@ vim.keymap.set("n", "<space>tr", function()
 end)
 
 require("config.lazy")
+
+vim.keymap.set("n", "<leader>W", function()
+  local current_buf = vim.api.nvim_get_current_buf()
+  for _, buffer in pairs(vim.api.nvim_list_bufs()) do
+    if buffer ~= current_buf then
+      vim.api.nvim_buf_delete(buffer, {})
+    end
+  end
+end)
 
 local harpoon = require("harpoon.ui")
 vim.keymap.set("n", "<leader>ht", harpoon.toggle_quick_menu, { desc = "Toggle harpoon quick menu" })
