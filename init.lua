@@ -1,3 +1,18 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
@@ -14,10 +29,10 @@ vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<space>va", "ggVG")
-vim.keymap.set({ "n", "v" }, "<space>y", "\"+y")
-vim.keymap.set("n", "<space>Y", "\"+Y")
-vim.keymap.set({ "n", "v" }, "<space>p", "\"+p")
-vim.keymap.set({ "n", "v" }, "<space>P", "\"+P")
+vim.keymap.set({ "n", "v" }, "<space>y", '"+y')
+vim.keymap.set("n", "<space>Y", '"+Y')
+vim.keymap.set({ "n", "v" }, "<space>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<space>P", '"+P')
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
@@ -56,6 +71,7 @@ local filetypes_to_indent = {
   "css",
   "html",
   "json", -- Often related to web dev
+  "jsonc", -- Often related to web dev
   "yaml", -- Often related to web dev
   "markdown",
 }
@@ -72,10 +88,10 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Set 2-space indentation for web development files",
 })
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
-vim.keymap.set('n', '<space>fl', function()
+vim.keymap.set("n", "<space>fl", function()
   local current_fold_level = vim.opt_local.foldlevel:get()
   local prompt_message = "Fold level (" .. current_fold_level .. "): "
   local input_str = vim.fn.input(prompt_message)
@@ -148,14 +164,33 @@ vim.keymap.set("n", "<leader>hr", function()
 end, { desc = "Remove current file from harpoon" })
 vim.keymap.set("n", "<space>>", harpoon.nav_next, { desc = "Go to next harpoon mark" })
 vim.keymap.set("n", "<space><", harpoon.nav_prev, { desc = "Go to previous harpoon mark" })
-vim.keymap.set("n", "<space>1", function() harpoon.nav_file(1) end, { desc = "Go to file 1 in harpoon marks" })
-vim.keymap.set("n", "<space>2", function() harpoon.nav_file(2) end, { desc = "Go to file 2 in harpoon marks" })
-vim.keymap.set("n", "<space>3", function() harpoon.nav_file(3) end, { desc = "Go to file 3 in harpoon marks" })
-vim.keymap.set("n", "<space>4", function() harpoon.nav_file(4) end, { desc = "Go to file 4 in harpoon marks" })
-vim.keymap.set("n", "<space>5", function() harpoon.nav_file(5) end, { desc = "Go to file 5 in harpoon marks" })
-vim.keymap.set("n", "<space>6", function() harpoon.nav_file(6) end, { desc = "Go to file 2 in harpoon marks" })
-vim.keymap.set("n", "<space>7", function() harpoon.nav_file(7) end, { desc = "Go to file 3 in harpoon marks" })
-vim.keymap.set("n", "<space>8", function() harpoon.nav_file(8) end, { desc = "Go to file 4 in harpoon marks" })
-vim.keymap.set("n", "<space>9", function() harpoon.nav_file(9) end, { desc = "Go to file 5 in harpoon marks" })
-vim.keymap.set("n", "<leader>hgt", function() harpoon.nav_file(tonumber(vim.fn.input("Mark number? "))) end,
-  { desc = "Go to specific harpoon mark number" })
+vim.keymap.set("n", "<space>1", function()
+  harpoon.nav_file(1)
+end, { desc = "Go to file 1 in harpoon marks" })
+vim.keymap.set("n", "<space>2", function()
+  harpoon.nav_file(2)
+end, { desc = "Go to file 2 in harpoon marks" })
+vim.keymap.set("n", "<space>3", function()
+  harpoon.nav_file(3)
+end, { desc = "Go to file 3 in harpoon marks" })
+vim.keymap.set("n", "<space>4", function()
+  harpoon.nav_file(4)
+end, { desc = "Go to file 4 in harpoon marks" })
+vim.keymap.set("n", "<space>5", function()
+  harpoon.nav_file(5)
+end, { desc = "Go to file 5 in harpoon marks" })
+vim.keymap.set("n", "<space>6", function()
+  harpoon.nav_file(6)
+end, { desc = "Go to file 2 in harpoon marks" })
+vim.keymap.set("n", "<space>7", function()
+  harpoon.nav_file(7)
+end, { desc = "Go to file 3 in harpoon marks" })
+vim.keymap.set("n", "<space>8", function()
+  harpoon.nav_file(8)
+end, { desc = "Go to file 4 in harpoon marks" })
+vim.keymap.set("n", "<space>9", function()
+  harpoon.nav_file(9)
+end, { desc = "Go to file 5 in harpoon marks" })
+vim.keymap.set("n", "<leader>hgt", function()
+  harpoon.nav_file(tonumber(vim.fn.input("Mark number? ")))
+end, { desc = "Go to specific harpoon mark number" })
