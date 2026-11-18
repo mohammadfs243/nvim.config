@@ -22,6 +22,11 @@ return {
         "javascript",
         "typescript",
         "astro",
+        "bash",
+        "yaml",
+        "python",
+        "go",
+        "rust",
       }
       local installed = ts.get_installed()
       local missing = vim.tbl_filter(function(p)
